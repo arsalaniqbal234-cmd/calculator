@@ -84,6 +84,7 @@
     <button class="zero" onclick="appendNum('0')">0</button>
 
     <button onclick="appendNum('.')">.</button>
+     <button class="op-btn" onclick="appendOp('<')"><</button>
 
     </div>
 </div>
@@ -111,6 +112,17 @@
     function clearAll() {
         expression = '';
         document.getElementById('display').textContent = '0';
+    }
+
+
+    {
+        function backspace() {
+            let display = 
+            document.getElementById("display");
+            display.value = 
+            display.value.slice(0 , -1);
+
+        }
     }
 </script>
 

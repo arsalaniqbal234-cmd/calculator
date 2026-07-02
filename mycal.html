@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+<style>
+     body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: lightseagreen;
+        }
+
+        .calculator {
+            background-color: rgba(228, 139, 139, 0.975);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(11, 11, 11, 0.1);
+            width: 280px;
+        }
+
+        #display {
+            background: #222;
+            color: white;
+            text-align: right;
+            padding: 15px;
+            font-size: 28px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            min-height: 50px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        button {
+            padding: 18px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #f0f0f0;
+        }
+
+        .op-btn  { background: #e0eeff; color: #0C447C; }
+        .eq-btn  { background: #378ADD; color: white; }
+        .clr-btn { background: #fde8e8; color: #A32D2D; }
+        .zero    { grid-column: span 2; }
+
+
+
+</style>
+<body>
+<div class="calculator">
+<div id="display">Let's Start</div>
+<div class="buttons">
+ <button class="clr-btn" onclick="clearAll()" 
+                style="grid-column:span 2">C</button>
+   <button class="op-btn" onclick="appendOp('/')">÷</button>
+   <button class="op-btn" onclick="appendOp('*')">x</button>
+
+
+   <button onclick="appendNum ('7')">7</button>
+   <button onclick="appendNum('8')">8</button>
+   <button onclick="appendNum('9')">9</button>
+   
+   <button class="op-btn" onclick="appendOp('-')">-</button>
+
+   <button onclick="appendNum('4')">4</button>
+   <button onclick="appendNum('5')">5</button>
+   <button onclick="appendNum('6')">6</button>
+
+   <button class="op-btn" onclick="appendOp('+')">+</button>
+   <button onclick="appendNum('1')">1</button>
+   <button onclick="appendNum('2')">2</button>
+   <button onclick="appendNum('3')">3</button>
+   
+   <button class="eq-btn" onclick="calculate()" 
+                style="grid-row:span 2">=</button>
+
+    <button class="zero" onclick="appendNum('0')">0</button>
+
+    <button onclick="appendNum('.')">.</button>
+
+    </div>
+</div>
+
+
+<script>
+    let expression = '';
+
+    function appendNum(n) {
+        expression = expression + n;
+        document.getElementById('display').textContent = expression;
+    }
+
+    function appendOp(op) {
+        expression = expression + op;
+        document.getElementById('display').textContent = expression;
+    }
+
+    function calculate() {
+        let result = eval(expression);
+        expression = result + '';
+        document.getElementById('display').textContent = result;
+    }
+
+    function clearAll() {
+        expression = '';
+        document.getElementById('display').textContent = '0';
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
